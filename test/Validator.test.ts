@@ -24,7 +24,7 @@ it('should validate one string property', () => {
     expect(result).toMatchObject({
         hasError: false,
         data: object,
-        errors: []
+        messages: []
     });
 });
 
