@@ -1,7 +1,7 @@
 {
   "name": "guarant",
   "version": "0.0.0",
-  "description": "Validator",
+  "description": "Javascript object structure validator",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -13,10 +13,17 @@
     "type": "git",
     "url": "git+https://github.com/CorentinTh/guarant.git"
   },
-  "keywords": [],
+  "keywords": [
+    "javascript",
+    "match",
+    "object",
+    "structure",
+    "test",
+    "validator"
+  ],
   "author": {
     "email": "corentin.thomasset74@gmail.com",
-    "name": "CorentinTh"
+    "name": "Corentin Thomasset"
   },
   "license": "MIT",
   "bugs": {
