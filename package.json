@@ -1,7 +1,7 @@
 {
-  "name": "vilad",
+  "name": "guarant",
   "version": "0.0.0",
-  "description": "Best application",
+  "description": "Validator",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CorentinTh/vilad.git"
+    "url": "git+https://github.com/CorentinTh/guarant.git"
   },
   "keywords": [],
   "author": {
@@ -20,9 +20,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CorentinTh/vilad/issues"
+    "url": "https://github.com/CorentinTh/guarant/issues"
   },
-  "homepage": "https://github.com/CorentinTh/vilad#readme",
+  "homepage": "https://github.com/CorentinTh/guarant#readme",
   "devDependencies": {},
   "dependencies": {
     "@types/jest": "^25.1.3",
