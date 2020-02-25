@@ -12,4 +12,4 @@ import {Result} from "./Result";
 
 
 
-export type Checker = (value: unknown, field: string, object: { [key: string]: unknown }) => Result
+export type Checker = (value: unknown, field: string, object?: { [key: string]: unknown }) => Result
