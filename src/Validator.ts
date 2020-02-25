@@ -26,34 +26,25 @@ export class Validator {
     static deepCheck(schema: Schema, object: ObjectContainer): Result {
         const result: Result = {hasError: false, data: {}, messages: []};
 
-        for (const field in schema) {
-            if (Object.prototype.hasOwnProperty.call(schema, field)) {
-                const checkerList = schema[field];
-                const objectValue = object[field];
+        Object.entries(schema).forEach(([field, checkerList]) => {
+            const objectValue = object[field];
+            Object.entries(checkerList).forEach(([checkerName, checkerConfig]) => {
+                const checker: CheckerGenerator = this.checkers[checkerName];
 
-                for (const checkerName in checkerList) {
-                    if (Object.prototype.hasOwnProperty.call(checkerList, checkerName)) {
-                        const checkerConfig = checkerList[checkerName];
-
-                        const checker: CheckerGenerator = this.checkers[checkerName];
-
-                        if (!checker) {
-                            throw new Error(`Invalid checker "${checkerName}". Available checkers are ${Object.keys(this.checkers).map(s => `"${s}"`).join(', ')}`);
-                        }
-
-                        const checkerResult = checker(checkerConfig)(objectValue, field, object);
-
-                        if (checkerResult.hasError) {
-                            result.hasError = true;
-                            result.messages.push(...checkerResult.messages)
-                        } else {
-                            result.data[field] = checkerResult.data[field];
-                        }
-
-                    }
+                if (!checker) {
+                    throw new Error(`Invalid checker "${checkerName}". Available checkers are ${Object.keys(this.checkers).map(s => `"${s}"`).join(', ')}`);
                 }
-            }
-        }
+
+                const checkerResult = checker(checkerConfig)(objectValue, field, object);
+
+                if (checkerResult.hasError) {
+                    result.hasError = true;
+                    result.messages.push(...checkerResult.messages)
+                } else {
+                    result.data[field] = checkerResult.data[field];
+                }
+            });
+        });
 
         return result;
     }
