@@ -75,3 +75,38 @@ it('should validate complex object', () => {
         }
     });
 });
+
+
+it('should throw for incorrect checker name in schema', () => {
+    const validator = new Validator({
+        foo: {
+            mldsfjksdf: "string"
+        }
+    });
+
+    expect(() => {
+        validator.check({})
+    }).toThrow();
+});
+
+
+it('should not validate incorrect object', () => {
+    const validator = new Validator({
+        foo: {
+            type: "string",
+            required: true
+        }
+    });
+
+    const object = {
+        foo: 1
+    };
+
+    const result = validator.check(object);
+
+    expect(result).toMatchObject({
+        hasError: true,
+        data: object,
+        messages: ['Property "foo" should be "string" but received "number".']
+    });
+});
