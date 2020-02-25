@@ -9,6 +9,10 @@
     "lint": "eslint src/**/*.ts --fix",
     "prepublish": "npm run build"
   },
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist/"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CorentinTh/guarant.git"
