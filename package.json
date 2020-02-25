@@ -1,5 +1,5 @@
 {
-  "name": "guarant",
+  "name": "garant",
   "version": "0.0.0",
   "description": "Javascript object structure validator",
   "main": "dist/index.js",
