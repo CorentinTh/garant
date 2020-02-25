@@ -1,12 +1,14 @@
 ![GARANT](./.github/logo.png)
 
-[![Node CI](https://github.com/CorentinTh/garant/workflows/Node%20CI/badge.svg)](https://github.com/CorentinTh/discot/actions)
-[![version](https://img.shields.io/npm/v/garant)](https://www.npmjs.com/package/garant)
-[![download](https://img.shields.io/npm/dw/garant)](https://www.npmjs.com/package/garant)
-[![download](https://img.shields.io/npm/l/garant)](./LICENSE.md)
+----
+<p align="center">
+    <a href="https://github.com/CorentinTh/garant/actions"><img src="https://github.com/CorentinTh/garant/workflows/Node%20CI/badge.svg" alt="Node CI"></a>
+    <a href="https://www.npmjs.com/package/garant"><img alt="npm" src="https://img.shields.io/npm/v/garant"></a>
+    <a href="https://www.npmjs.com/package/garant"><img alt="npm" src="https://img.shields.io/npm/dw/garant"></a>
+    <a href="LICENSE"><img alt="NPM" src="https://img.shields.io/npm/l/garant"></a>
+</p>
 
 Simple and lightweight javascript object schema validation library.
-
 
 ## Installation
 
