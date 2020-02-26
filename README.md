@@ -86,8 +86,8 @@ const results = validator.check(object);
 - ~~**Required** checker~~
 - ~~**Type** checker~~
 - ~~**Children** checker~~
+- ~~**Default** checker (set default value if undefined)~~
 - Improve documentation
-- **Default** checker (set default value if undefined)
 - **Regex** checker
 - **Length** (min, max) checker
 - **Array content** checker
