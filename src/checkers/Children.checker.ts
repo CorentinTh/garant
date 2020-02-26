@@ -1,13 +1,9 @@
-import {Checker} from "../types/Checker";
-import {Result} from "../types/Result";
-import {CheckerGenerator} from "../types/CheckerGenerator";
-import {Schema} from "../types/Schema";
-import {ObjectContainer} from "../types/ObjectContainer";
+
+import {ValidatorSchema, CheckerGenerator, ValidatorObject, ValidatorResult, Checker} from "../types";
 import {Validator} from "../Validator";
 
-export const childrenChecker: CheckerGenerator = (schema: Schema): Checker => {
-    return (value: unknown, field: string): Result => {
-
+export const childrenChecker: CheckerGenerator = (schema: ValidatorSchema): Checker => {
+    return (value: unknown, field: string): ValidatorResult => {
 
         if (!schema) {
             return {
@@ -25,10 +21,9 @@ export const childrenChecker: CheckerGenerator = (schema: Schema): Checker => {
             return{
                 hasError: false,
                 messages: [],
-                data: {[field]: Validator.deepCheck(schema, value as ObjectContainer).data}
+                data: {[field]: Validator.deepCheck(schema, value as ValidatorObject).data}
             };
-
-
         }
+        
     }
 }

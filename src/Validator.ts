@@ -1,13 +1,10 @@
-import {Result} from "./types/Result";
-import {Schema} from "./types/Schema";
-import {ObjectContainer} from "./types/ObjectContainer";
-import {CheckerGenerator} from "./types/CheckerGenerator";
 import {requiredChecker} from "./checkers/Required.checker";
 import {typeChecker} from "./checkers/Type.checker";
 import {childrenChecker} from "./checkers/Children.checker";
+import {ValidatorSchema, CheckerGenerator, ValidatorObject, ValidatorResult} from "./types";
 
 export class Validator {
-    private readonly schema: Schema;
+    private readonly schema: ValidatorSchema;
 
     private static checkers: { [key: string]: CheckerGenerator } = {
         'required': requiredChecker,
@@ -15,16 +12,16 @@ export class Validator {
         'type': typeChecker
     };
 
-    constructor(schema: Schema) {
+    constructor(schema: ValidatorSchema) {
         this.schema = schema;
     }
 
-    check(object: ObjectContainer): Result {
+    check(object: ValidatorObject): ValidatorResult {
         return Validator.deepCheck(this.schema, object);
     }
 
-    static deepCheck(schema: Schema, object: ObjectContainer): Result {
-        const result: Result = {hasError: false, data: {}, messages: []};
+    static deepCheck(schema: ValidatorSchema, object: ValidatorObject): ValidatorResult {
+        const result: ValidatorResult = {hasError: false, data: {}, messages: []};
 
         Object.entries(schema).forEach(([field, checkerList]) => {
             const objectValue = object[field];

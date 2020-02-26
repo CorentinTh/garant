@@ -1,5 +1,4 @@
 import {Validator} from '../src'
-import objectContaining = jasmine.objectContaining;
 
 it('should validate empty input empty schema', () => {
     const validator = new Validator({});

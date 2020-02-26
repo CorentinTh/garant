@@ -1,5 +1,5 @@
 import {requiredChecker} from '../../src/checkers/Required.checker'
-import {Result} from "../../src/types/Result";
+import {ValidatorResult} from "../../src/types";
 
 it('should validate for required input when it is present', () => {
     const result = requiredChecker(true)('foo', 'bar');
@@ -10,7 +10,7 @@ it('should validate for required input when it is present', () => {
         },
         hasError: false,
         messages: []
-    } as Result)
+    } as ValidatorResult)
 });
 
 it('should not validate for required input when it is not present', () => {
@@ -20,5 +20,5 @@ it('should not validate for required input when it is not present', () => {
         data: {},
         hasError: true,
         messages: ['Missing required property "bar".']
-    } as Result)
+    } as ValidatorResult)
 });

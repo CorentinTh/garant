@@ -1,9 +1,7 @@
-import {Checker} from "../types/Checker";
-import {Result} from "../types/Result";
-import {CheckerGenerator} from "../types/CheckerGenerator";
+import {CheckerGenerator, ValidatorResult, Checker} from "../types";
 
 export const typeChecker: CheckerGenerator = (type: 'string' | 'object' | 'number' | 'array'): Checker => {
-    return (value: unknown, field: string): Result => {
+    return (value: unknown, field: string): ValidatorResult => {
         const currentType = Array.isArray(value) ? 'array' : typeof value;
         const hasError = currentType !== 'undefined' && currentType !== type;
 
