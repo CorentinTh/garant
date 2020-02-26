@@ -1,12 +1,11 @@
 <p align="center">
     <a href="https://www.npmjs.com/package/garant"><img alt="npm" src="./.github/logo.png"></a>
     <a href="https://github.com/CorentinTh/garant/actions"><img src="https://github.com/CorentinTh/garant/workflows/Node%20CI/badge.svg" alt="Node CI"></a>
+    <a href="https://codecov.io/gh/CorentinTh/bame"><img src="https://codecov.io/gh/CorentinTh/garant" alt="coverage badge"/></a>
     <a href="https://www.npmjs.com/package/garant"><img alt="npm" src="https://img.shields.io/npm/v/garant"></a>
     <a href="https://www.npmjs.com/package/garant"><img alt="npm" src="https://img.shields.io/npm/dw/garant"></a>
     <a href="LICENSE"><img alt="NPM" src="https://img.shields.io/npm/l/garant"></a>
 </p>
-
-
 
 
 Simple and lightweight javascript object schema validation library.
