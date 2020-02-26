@@ -10,6 +10,12 @@
 
 Simple and lightweight javascript object schema validation library.
 
+## Description
+
+* **Lightweight**: when bundled with rollup and terser, the output weight less than 2kB (vs ~167kB for [@hapi/joi](https://www.npmjs.com/package/@hapi/joi), 80 times ratio!) 
+* **Modular**: easily create new checkers (see [here](#road_map))
+* **Typescript support**
+
 ## Installation
 
 **Garant** can be installed using yarn or npm.
