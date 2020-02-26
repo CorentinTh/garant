@@ -1,10 +1,8 @@
-import {Result} from "./types/Result";
-import {Schema} from "./types/Schema";
-import {ObjectContainer} from "./types/ObjectContainer";
-import {CheckerGenerator} from "./types/CheckerGenerator";
+
 import {requiredChecker} from "./checkers/Required.checker";
 import {typeChecker} from "./checkers/Type.checker";
 import {childrenChecker} from "./checkers/Children.checker";
+import { Schema, CheckerGenerator, ObjectContainer, Result } from "./types";
 
 export class Validator {
     private readonly schema: Schema;
