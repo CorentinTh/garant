@@ -1,6 +1,6 @@
 {
   "name": "garant",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Simple and lightweight javascript object schema validation library.",
   "main": "dist/index.js",
   "scripts": {
