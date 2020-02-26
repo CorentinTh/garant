@@ -7,11 +7,12 @@
     "build": "tsc",
     "test": "jest",
     "lint": "eslint src/**/*.ts --fix",
-    "prepublish": "npm run build"
+    "prepublishOnly": "npm run build"
   },
   "types": "dist/index.d.ts",
   "files": [
-    "/dist/"
+    "/dist/",
+    "/.github/logo.png"
   ],
   "repository": {
     "type": "git",
