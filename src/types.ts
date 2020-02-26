@@ -1,4 +1,4 @@
-type Result = {
+type ValidatorResult = {
     hasError: boolean;
     messages: string[];
     data: {
@@ -6,20 +6,20 @@ type Result = {
     };
 };
 
-type ObjectContainer = {
+type ValidatorObject = {
     [key: string]: unknown;
 }
 
-type Checker = (value: unknown, field: string, object?: { [key: string]: unknown }) => Result;
+type Checker = (value: unknown, field: string, object?: { [key: string]: unknown }) => ValidatorResult;
 
 type CheckerGenerator = (config: any) => Checker;
 
-type Schema = { [key: string]: { [key: string]: unknown } };
+type ValidatorSchema = { [key: string]: { [key: string]: unknown } };
 
 export {
-    Result,
+    ValidatorResult,
     Checker,
     CheckerGenerator,
-    Schema,
-    ObjectContainer
+    ValidatorSchema,
+    ValidatorObject
 }
