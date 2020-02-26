@@ -1,6 +1,6 @@
 {
   "name": "garant",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Javascript object structure validator",
   "main": "dist/index.js",
   "scripts": {
