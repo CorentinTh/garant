@@ -1,7 +1,7 @@
 {
   "name": "garant",
   "version": "1.0.4",
-  "description": "Javascript object structure validator",
+  "description": "Simple and lightweight javascript object schema validation library.",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -21,9 +21,11 @@
     "javascript",
     "match",
     "object",
+    "schema",
     "structure",
     "test",
-    "validator"
+    "validator",
+    "validation"
   ],
   "author": {
     "email": "corentin.thomasset74@gmail.com",
