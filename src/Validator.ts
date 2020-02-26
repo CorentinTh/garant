@@ -26,7 +26,7 @@ export class Validator {
         const result: ValidatorResult = {hasError: false, data: {}, messages: []};
 
         Object.entries(schema).forEach(([field, checkerList]) => {
-            const objectValue = object[field];
+            let objectValue = object[field];
             Object.entries(checkerList).forEach(([checkerName, checkerConfig]) => {
                 const checker: CheckerGenerator = this.checkers[checkerName];
 
@@ -40,7 +40,7 @@ export class Validator {
                     result.hasError = true;
                     result.messages.push(...checkerResult.messages)
                 } else {
-                    result.data[field] = checkerResult.data[field];
+                    objectValue = result.data[field] = checkerResult.data[field];
                 }
             });
         });

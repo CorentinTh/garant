@@ -109,3 +109,42 @@ it('should not validate incorrect object', () => {
         messages: ['Property "foo" should be "string" but received "number".']
     });
 });
+
+
+it('should set default value for missing object', () => {
+    const validator = new Validator({
+        foo: {
+            type: "string",
+            default: 'bar'
+        }
+    });
+
+    const result = validator.check({});
+
+    expect(result).toMatchObject({
+        hasError: false,
+        data: {foo: 'bar'},
+        messages: []
+    });
+});
+
+
+it('should set default value for missing nested object', () => {
+    const validator = new Validator({
+        foo: {
+            type: "object",
+            default: {},
+            children: {
+                bar: {type: 'string', default: 'baz'}
+            }
+        }
+    });
+
+    const result = validator.check({});
+
+    expect(result).toMatchObject({
+        hasError: false,
+        data: {foo: {bar: 'baz'}},
+        messages: []
+    });
+});
