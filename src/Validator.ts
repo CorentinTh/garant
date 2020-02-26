@@ -1,4 +1,3 @@
-
 import {requiredChecker} from "./checkers/Required.checker";
 import {typeChecker} from "./checkers/Type.checker";
 import {childrenChecker} from "./checkers/Children.checker";
