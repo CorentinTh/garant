@@ -2,6 +2,7 @@ import {requiredChecker} from "./checkers/Required.checker";
 import {typeChecker} from "./checkers/Type.checker";
 import {childrenChecker} from "./checkers/Children.checker";
 import {ValidatorSchema, CheckerGenerator, ValidatorObject, ValidatorResult} from "./types";
+import {defaultChecker} from "./checkers/Default.checker";
 
 export class Validator {
     private readonly schema: ValidatorSchema;
@@ -9,7 +10,8 @@ export class Validator {
     private static checkers: { [key: string]: CheckerGenerator } = {
         'required': requiredChecker,
         'children': childrenChecker,
-        'type': typeChecker
+        'type': typeChecker,
+        'default': defaultChecker
     };
 
     constructor(schema: ValidatorSchema) {
