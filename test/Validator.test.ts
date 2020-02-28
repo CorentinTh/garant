@@ -89,6 +89,19 @@ it('should throw for incorrect checker name in schema', () => {
 });
 
 
+it('should not throw for incorrect checker name in schema', () => {
+    const validator = new Validator({
+        foo: {
+            mldsfjksdf: "string"
+        }
+    }, {allowCustomsInSchema: true});
+
+    expect(() => {
+        validator.check({})
+    }).not.toThrow();
+});
+
+
 it('should not validate incorrect object', () => {
     const validator = new Validator({
         foo: {
@@ -148,3 +161,4 @@ it('should set default value for missing nested object', () => {
         messages: []
     });
 });
+
