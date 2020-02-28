@@ -4,34 +4,34 @@ import {childrenChecker} from "./checkers/Children.checker";
 import {ValidatorSchema, CheckerGenerator, ValidatorObject, ValidatorResult} from "./types";
 import {defaultChecker} from "./checkers/Default.checker";
 
+const checkers: { [key: string]: CheckerGenerator } = {
+    'required': requiredChecker,
+    'children': childrenChecker,
+    'type': typeChecker,
+    'default': defaultChecker
+};
+
 export class Validator {
     private readonly schema: ValidatorSchema;
-
-    private static checkers: { [key: string]: CheckerGenerator } = {
-        'required': requiredChecker,
-        'children': childrenChecker,
-        'type': typeChecker,
-        'default': defaultChecker
-    };
 
     constructor(schema: ValidatorSchema) {
         this.schema = schema;
     }
 
     check(object: ValidatorObject): ValidatorResult {
-        return Validator.deepCheck(this.schema, object);
+        return this.deepCheck(this.schema, object);
     }
 
-    static deepCheck(schema: ValidatorSchema, object: ValidatorObject): ValidatorResult {
+    private deepCheck(schema: ValidatorSchema, object: ValidatorObject): ValidatorResult {
         const result: ValidatorResult = {hasError: false, data: {}, messages: []};
 
         Object.entries(schema).forEach(([field, checkerList]) => {
             let objectValue = object[field];
             Object.entries(checkerList).forEach(([checkerName, checkerConfig]) => {
-                const checker: CheckerGenerator = this.checkers[checkerName];
+                const checker: CheckerGenerator = checkers[checkerName];
 
                 if (!checker) {
-                    throw new Error(`Invalid checker "${checkerName}". Available checkers are ${Object.keys(this.checkers).map(s => `"${s}"`).join(', ')}`);
+                    throw new Error(`Invalid checker "${checkerName}". Available checkers are ${Object.keys(checkers).map(s => `"${s}"`).join(', ')}`);
                 }
 
                 const checkerResult = checker(checkerConfig)(objectValue, field, object);

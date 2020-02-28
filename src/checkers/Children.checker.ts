@@ -21,7 +21,7 @@ export const childrenChecker: CheckerGenerator = (schema: ValidatorSchema): Chec
             return{
                 hasError: false,
                 messages: [],
-                data: {[field]: Validator.deepCheck(schema, value as ValidatorObject).data}
+                data: {[field]: new Validator(schema).check(value as ValidatorObject).data}
             };
         }
         
