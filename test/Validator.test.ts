@@ -162,4 +162,3 @@ it('should set default value for missing nested object', () => {
     });
 });
 
-
