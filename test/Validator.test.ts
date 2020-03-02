@@ -79,6 +79,7 @@ it('should validate complex object', () => {
 it('should throw for incorrect checker name in schema', () => {
     const validator = new Validator({
         foo: {
+            type:"string",
             mldsfjksdf: "string"
         }
     });
@@ -92,6 +93,7 @@ it('should throw for incorrect checker name in schema', () => {
 it('should not throw for incorrect checker name in schema', () => {
     const validator = new Validator({
         foo: {
+            type:"string",
             mldsfjksdf: "string"
         }
     }, {allowCustomsInSchema: true});

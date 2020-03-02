@@ -1,5 +1,5 @@
 import {defaultChecker} from '../../src/checkers/Default.checker'
-import {ValidatorResult} from "../../src/types";
+import {CheckerResult} from "../../src/types";
 
 it('should not set default when value is set', () => {
 
@@ -11,7 +11,7 @@ it('should not set default when value is set', () => {
         },
         hasError: false,
         messages: []
-    } as ValidatorResult)
+    } as CheckerResult)
 });
 
 it('should set default when value is not set', () => {
@@ -24,6 +24,6 @@ it('should set default when value is not set', () => {
         },
         hasError: false,
         messages: []
-    } as ValidatorResult)
+    } as CheckerResult)
 });
 

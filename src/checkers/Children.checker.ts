@@ -1,9 +1,9 @@
 
-import {ValidatorSchema, CheckerGenerator, ValidatorObject, ValidatorResult, Checker} from "../types";
+import {ValidatorSchema, CheckerGenerator, ValidatorObject, CheckerResult, Checker} from "../types";
 import {Validator} from "../Validator";
 
 export const childrenChecker: CheckerGenerator = (schema: ValidatorSchema): Checker => {
-    return (value: unknown, field: string): ValidatorResult => {
+    return (value: unknown, field: string): CheckerResult => {
 
         if (!schema) {
             return {

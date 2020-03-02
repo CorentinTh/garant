@@ -1,5 +1,5 @@
 import {childrenChecker} from '../../src/checkers/Children.checker'
-import {ValidatorResult} from "../../src/types";
+import {CheckerResult} from "../../src/types";
 
 it('should validate nested object', () => {
     const result = childrenChecker({'foo': {type: 'string'}})({foo: 'baz'}, 'bar');
@@ -12,7 +12,7 @@ it('should validate nested object', () => {
         },
         hasError: false,
         messages: []
-    } as ValidatorResult)
+    } as CheckerResult)
 });
 
 
@@ -23,7 +23,7 @@ it('should not validate when missing schema', () => {
         data: {},
         hasError: true,
         messages: ['Missing children object for "bar".']
-    } as ValidatorResult)
+    } as CheckerResult)
 });
 
 it('should not validate when missing value', () => {
@@ -33,5 +33,5 @@ it('should not validate when missing value', () => {
         data: {},
         hasError: false,
         messages: []
-    } as ValidatorResult)
+    } as CheckerResult)
 });
