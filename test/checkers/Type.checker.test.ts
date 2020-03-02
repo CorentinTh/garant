@@ -1,5 +1,5 @@
 import {typeChecker} from '../../src/checkers/Type.checker'
-import {ValidatorResult} from "../../src/types";
+import {CheckerResult} from "../../src/types";
 
 it('should validate type for string with string value', () => {
 
@@ -11,7 +11,7 @@ it('should validate type for string with string value', () => {
         },
         hasError: false,
         messages: []
-    } as ValidatorResult)
+    } as CheckerResult)
 });
 
 it('should validate type for string with undefined value', () => {
@@ -21,7 +21,7 @@ it('should validate type for string with undefined value', () => {
         data: {},
         hasError: false,
         messages: []
-    } as ValidatorResult)
+    } as CheckerResult)
 });
 
 it('should validate for array with array value', () => {
@@ -33,7 +33,7 @@ it('should validate for array with array value', () => {
         },
         hasError: false,
         messages: []
-    } as ValidatorResult)
+    } as CheckerResult)
 });
 
 it('should not validate type for string with number value', () => {
@@ -44,5 +44,5 @@ it('should not validate type for string with number value', () => {
         data: {},
         hasError: true,
         messages: ['Property "bar" should be "string" but received "number".']
-    } as ValidatorResult)
+    } as CheckerResult)
 });

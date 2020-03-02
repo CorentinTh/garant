@@ -1,7 +1,7 @@
-import {CheckerGenerator, ValidatorResult, Checker} from "../types";
+import {CheckerGenerator, CheckerResult, Checker} from "../types";
 
 export const requiredChecker: CheckerGenerator = (required: boolean): Checker => {
-    return (value: unknown, field: string): ValidatorResult => {
+    return (value: unknown, field: string): CheckerResult => {
         const hasError = !value && required;
 
         return {

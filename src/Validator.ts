@@ -7,9 +7,9 @@ import {
     ValidatorSchema,
     CheckerGenerator,
     ValidatorObject,
-    ValidatorResult,
+    CheckerResult,
     ValidatorConfig,
-    ValidatorConfigClean
+    ValidatorConfigClean, ValidatorSchemaToType, ValidatorResult
 } from "./types";
 
 const checkers: { [key: string]: CheckerGenerator } = {
@@ -23,21 +23,21 @@ const defaultConfig: ValidatorConfigClean = {
     allowCustomsInSchema: false
 };
 
-export class Validator {
+export class Validator<T extends ValidatorSchema> {
     private readonly schema: ValidatorSchema;
     private config: ValidatorConfigClean;
 
-    constructor(schema: ValidatorSchema, config?: ValidatorConfig) {
+    constructor(schema: T, config?: ValidatorConfig) {
         this.schema = schema;
         this.config = Object.assign({}, defaultConfig, config);
     }
 
-    check(object: ValidatorObject): ValidatorResult {
-        return this.deepCheck(this.schema, object);
+    check(object: ValidatorObject): ValidatorResult<T> {
+        return this.deepCheck(this.schema, object) as ValidatorResult<T>;
     }
 
-    private deepCheck(schema: ValidatorSchema, object: ValidatorObject): ValidatorResult {
-        const result: ValidatorResult = {hasError: false, data: {}, messages: []};
+    private deepCheck(schema: ValidatorSchema, object: ValidatorObject): CheckerResult {
+        const result: CheckerResult = {hasError: false, data: {}, messages: []};
 
         Object.entries(schema).forEach(([field, checkerList]) => {
             let objectValue = object[field];
